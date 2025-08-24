@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        background-image: url("{{ url_for('static', filename='pictures/white.png') }}"); 
+        background-size: cover; 
+        background-repeat: no-repeat; 
+        background-position: center; 
+
+        }
+    </style>
+
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="http://127.0.0.1:5000/">Home</a></li>
+        </ul>
+    </nav>
+    <h2>Login for {{ user_type | capitalize }}</h2>
+    <form method="post">
+        <label>Username:</label><br>
+        <input type="text" name="username" required><br><br>
+        
+        <label>Password:</label><br>
+        <input type="password" name="password" required><br><br>
+        
+        <button type="submit">Login</button>
+    </form>
+    <br>
+    <a href="{{ url_for('register', user=user_type) }}">New user? Register here</a>
+</body>
+</html>

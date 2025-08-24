@@ -1,0 +1,234 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Body Styling */
+body {
+    background-color: #f4f4f9;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+
+}
+
+/* Homepage Specific Styling */
+body.homepage {
+    justify-content: flex-start; /* Align items at the top */
+    text-align: center; /* Center align text */
+}
+
+body.homepage .container {
+    max-width: 600px; /* Restrict content width */
+    margin: 0 auto; /* Center horizontally */
+    padding-top: 50px; /* Add some spacing from the top */
+}
+
+body.homepage .button-group {
+    display: flex;
+    justify-content: space-around; /* Ensure space between items */
+    flex-wrap: wrap; /* Allow wrapping for responsiveness */
+    margin-top: 20px;
+}
+
+body.homepage .card {
+    display: inline-flex;
+    flex-basis: auto;
+    flex-direction: row;
+    align-items: center;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 10px;
+    width: 200px;
+}
+
+body.homepage .card img {
+    max-width: 100%;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+body.homepage .user-button {
+    text-decoration: none;
+    color: #fff;
+    background-color: #007bff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+body.homepage .user-button:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+    body.homepage .button-group {
+        flex-direction: column; /* Stack cards on small screens */
+    }
+    body.homepage .card {
+        width: 100%; /* Make cards full width on small screens */
+        max-width: 300px;
+    }
+}
+
+/* Navigation Links */
+nav {
+    display: flex;
+    justify-content: flex-end; 
+    align-items: flex-start; 
+    position: absolute; /* absolutely positions the element */
+    top:5% ; 
+    right: 10% ; /*aligns it to the right (0 is FULL RIGHT */
+    width: 100%; 
+}
+nav a {
+    color: #fff;
+    background-color: #007bff;
+    padding:10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 0 10px;
+    transition: background-color 0.3s ease;
+    
+}
+nav a:hover {
+    background-color: #0056b3;
+}
+
+/* Headings */
+h1, h2 {
+    margin-bottom: 20px;
+    color: #007bff;
+}
+
+/* Forms */
+form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 300px;
+}
+form label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+form button {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+form button:hover {
+    background-color: #218838;
+}
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 20px 0;
+}
+ul li {
+    padding:0 px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+ul li.success {
+    background-color: #d4edda;
+    color: #155724;
+}
+ul li.danger {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+ul li.warning {
+    background-color: #fff3cd;
+    color: #856404;
+}
+ul li.info {
+    background-color: #d1ecf1;
+    color: #0c5460;
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    max-width: 1200px;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+table, th, td {
+    border: 1px solid #ddd;
+}
+th, td {
+    padding: 12px;
+    text-align: left;
+}
+th {
+    background-color: #007bff;
+    color: white;
+}
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Links */
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+/* Button Styling for Dashboard Navigation */
+button, .btn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-align: center;
+}
+button:hover, .btn:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+    form {
+        width: 90%;
+    }
+    table {
+        width: 100%;
+    }
+}

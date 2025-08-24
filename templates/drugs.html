@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Drug List</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h2>Available Drugs</h2>
+    <table border="1">
+        <tr>
+            <th>Drug Name</th>
+            <th>Manufacturer</th>
+            <th>Quantity</th>
+            <th>Expiry Date</th>
+        </tr>
+        {% for drug in drugs %}
+        <tr>
+            <td>{{ drug['drug_name'] }}</td>
+            <td>{{ drug['manufacturer'] }}</td>
+            <td>{{ drug['quantity'] }}</td>
+            <td>{{ drug['expiry_date'] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <a href="{{ url_for('dashboard') }}">Back to Dashboard</a>
+</body>
+</html>

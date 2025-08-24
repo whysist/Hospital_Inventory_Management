@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Management</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Drug Inventory</h2>
+        <form method="POST" action="{{ url_for('inventory') }}">
+            <h3>Add Drug</h3>
+            <input type="text" name="drug_name" placeholder="Drug Name" required>
+            <input type="text" name="manufacturer" placeholder="Manufacturer" required>
+            <input type="number" name="quantity" placeholder="Quantity" required>
+            <input type="date" name="expiry_date" placeholder="Expiry Date" required>
+            <input type="hidden" name="action" value="add">
+            <button type="submit">Add Drug</button>
+        </form>
+
+        <table border="1">
+            <tr>
+                <th>ID</th>
+                <th>Drug Name</th>
+                <th>Manufacturer</th>
+                <th>Quantity</th>
+                <th>Expiry Date</th>
+                <th>Actions</th>
+            </tr>
+            {% for drug in drugs %}
+            <tr>
+                <td>{{ drug['id'] }}</td>
+                <td>{{ drug['drug_name'] }}</td>
+                <td>{{ drug['manufacturer'] }}</td>
+                <td>{{ drug['quantity'] }}</td>
+                <td>{{ drug['expiry_date'] }}</td>
+                <td>
+                    <!-- Edit Form -->
+                    <form method="POST" action="{{ url_for('inventory') }}" style="display: inline-block;">
+                        <input type="hidden" name="drug_id" value="{{ drug['id'] }}">
+                        <input type="text" name="drug_name" value="{{ drug['drug_name'] }}" required>
+                        <input type="text" name="manufacturer" value="{{ drug['manufacturer'] }}" required>
+                        <input type="number" name="quantity" value="{{ drug['quantity'] }}" required>
+                        <input type="date" name="expiry_date" value="{{ drug['expiry_date'] }}" required>
+                        <input type="hidden" name="action" value="edit">
+                        <button type="submit">Edit</button>
+                    </form>
+                    <!-- Delete Form -->
+                    <form method="POST" action="{{ url_for('inventory') }}" style="display: inline-block;">
+                        <input type="hidden" name="drug_id" value="{{ drug['id'] }}">
+                        <input type="hidden" name="action" value="delete">
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <a href="{{ url_for('logout') }}">Logout</a>
+</body>
+</html>

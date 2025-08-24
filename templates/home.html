@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        background-image:url("{{ url_for('static', filename='pictures/white.png') }}"); 
+        background-size: cover; /* Ensures the image covers the entire screen */
+        background-repeat: no-repeat; 
+        background-position: center; 
+
+        }
+    </style>
+</head>
+<body class="homepage">
+    <div class="container">
+        <h1>Select Access</h1>
+        <div class="button-group">
+            <div class="card">
+                <img src="{{ url_for('static', filename='pictures/Hospitals1.png') }}" alt="HQ">
+                <a href="{{ url_for('login', next='exec_office') }}" class="user-button">Executive Offices</a>
+            </div>
+            
+            </div><div class="card">
+                <img src="{{ url_for('static', filename='pictures/Pharmacy.png') }}" alt="Clinics">
+                <a href="{{ url_for('login', next='inventory') }}" class="user-button">Pharmacies</a>
+            <div class="card">
+                <img src="{{ url_for('static', filename='pictures/storage.png') }}" alt="Vendors">
+                <!-- <a href="{{ url_for('login', next='vendors') }}" class="user-button">Vendors</a> -->
+            </div>
+        </div>
+    </div>
+</body>
+</html>

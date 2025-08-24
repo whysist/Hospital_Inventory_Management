@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ pharmacy_name }} Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Welcome to {{ pharmacy_name }} Pharmacy Dashboard</h1>
+
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Drug Name</th>
+            <th>Manufacturer</th>
+            <th>Quantity</th>
+            <th>Expiry Date</th>
+        </tr>
+        {% for drug in drugs %}
+        <tr>
+            <td>{{ drug['id'] }}</td>
+            <td>{{ drug['drug_name'] }}</td>
+            <td>{{ drug['manufacturer'] }}</td>
+            <td>{{ drug['quantity'] }}</td>
+            <td>{{ drug['expiry_date'] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <br>
+    <a href="{{ url_for('inventory') }}">Manage Inventory</a>
+    <a href="{{ url_for('logout') }}">Logout</a>
+</body>
+</html>
